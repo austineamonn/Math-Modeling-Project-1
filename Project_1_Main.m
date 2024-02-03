@@ -1,34 +1,35 @@
 function [low,high]=Project_1_Main(X)
-rng('shuffle');
+rng('shuffle')
 if nargin<1
     X=randomdata();
 end
 %X = [1 4 NaN; 2 0 13; 3 5 NaN; 4 8 7; 5 3 NaN; 6 10 8; 7 13 10; 8 11 2; 9 NaN 6; 10 NaN 5; 11 4 4; 12 NaN 6; 13 4 9; 14 7 3; 15 NaN 8 ];
-[Xrow,~]=size(X);
+[Xrow,Xcol]=size(X);
 Student_List = [X(1:end,1)];
-Class_1 = [X(1:end,2)];
-Class_2 = [X(1:end,3)];
-ave1=class_ave(Class_1);
-ave2=class_ave(Class_2);
-stud_ave1=student_ave(Class_1,ave1);
-stud_ave2=student_ave(Class_2,ave2);
+new_X=[Student_List];
+for i=2:Xcol
+    Class = [X(1:end,i)];
+    ave=class_ave(Class);
+    stud_ave=student_ave(Class,ave);
+    new_X=[new_X, stud_ave];
+end
 ranking=zeros(Xrow,1);
+new_X=[new_X, ranking];
 
-new_X=[Student_List,stud_ave1,stud_ave2,ranking];
 for i=1:Xrow
     sum=0;
     count=0;
-    for j=2:3
+    for j=2:Xcol
         k=new_X(i,j);
         if ~isnan(k)
             sum=sum+k;
             count=count+1;
         end
     end
-    new_X(i,4)=sum/count;
+    new_X(i,Xcol+1)=sum/count;
 end
-final_ranking = new_X(1:end, 4);
-sorted_list=sort(final_ranking, 'descend');
+final_ranking = [Student_List,new_X(1:end, Xcol+1)]
+sorted_list=sortrows(final_ranking, 2, 'descend');
 
 tenthpercent=floor(Xrow/10);
 
