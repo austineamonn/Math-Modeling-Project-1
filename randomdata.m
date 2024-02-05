@@ -1,8 +1,8 @@
 function data=randomdata(row,col,type)
 rng('shuffle');
 if nargin<1
-    row=20;
-    col=20;
+    row=1700;
+    col=399;
     type=0;
 end
 students=[1:row]';
@@ -16,9 +16,10 @@ elseif type ==1 %Grinnell
 else %A,B,C school
     possible_scores = [0:4]';
 end
+gg=getgrades(400,0);
 for i=1:row
     classnum=randi([1,6]); %random number of classes
-    scorenum = randsample(getgrades(classnum,0),classnum,true);
+    scorenum = randsample(gg,classnum,true);
     %scorenum = randsample(possible_scores,classnum,true);
 
     %scorenum=randi([0,13],classnum,1); %random grades in each class
