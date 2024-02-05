@@ -1,4 +1,4 @@
-function [low,high]=Project_1_Main(X)
+function [low,high,sorted_list]=Project_1_Main(X)
 rng('shuffle')
 if nargin<1
     X=randomdata();
@@ -28,7 +28,7 @@ for i=1:Xrow
     end
     new_X(i,Xcol+1)=sum/count;
 end
-final_ranking = [Student_List,new_X(1:end, Xcol+1)]
+final_ranking = [Student_List,new_X(1:end, Xcol+1)];
 sorted_list=sortrows(final_ranking, 2, 'descend');
 
 tenthpercent=floor(Xrow/10);
