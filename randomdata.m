@@ -13,10 +13,12 @@ if type==0 %A+,A,A- etc school
     possible_scores = [0,3,5:13]';
 elseif type ==1 %Grinnell
     possible_scores = [0,3,5:12]';
-else %A,B,C school
+elseif type ==2 %A,B,C school
     possible_scores = [0:4]';
+elseif type ==3 %0-100
+    possible_scores = [0:100];
 end
-gg=getgrades(400,0);
+gg=getgrades(400,0,3);
 for i=1:row
     classnum=randi([1,6]); %random number of classes
     scorenum = randsample(gg,classnum,true);
@@ -32,3 +34,4 @@ for i=1:row
 end
 
 %add in student numbers in first column
+
