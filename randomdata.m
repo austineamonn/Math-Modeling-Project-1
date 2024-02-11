@@ -18,7 +18,7 @@ elseif type ==2 %A,B,C school
 elseif type ==3 %0-100
     possible_scores = [0:100];
 end
-gg=getgrades(400,0,3);
+gg=getgrades(400,3);
 for i=1:row
     classnum=randi([1,6]); %random number of classes
     scorenum = randsample(gg,classnum,true);
