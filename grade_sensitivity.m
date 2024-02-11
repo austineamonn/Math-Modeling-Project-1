@@ -1,4 +1,4 @@
-function [row,col,val,diff12,diff13]=grade_sensitivity(data)
+function [row,col,val,diff12,diff13]=grade_sensitivity(data,type)
 rng('shuffle')
 
 if nargin<1
@@ -12,7 +12,6 @@ newer_data=data;
 [low1,~,~]=Project_1_Main(data); %no change in data
 
 nochange=0;
-type=3;
 if type==0 % A+,...
     while nochange==0
         row=randi(Xrow);
