@@ -7,7 +7,6 @@ sensitivity=zeros(1,num);
 for i=1:num
     [~,~,~,diff12,~,diff13]=grade_sensitivity(data);
     [~,col1]=size(diff12);
-    %[~,col2]=size(diff23);
     [~,col3]=size(diff13);
     combined=col1+col3;
     sensitivity(1,i)=combined;
