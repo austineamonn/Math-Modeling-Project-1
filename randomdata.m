@@ -22,9 +22,6 @@ gg=getgrades(400,0,3);
 for i=1:row
     classnum=randi([1,6]); %random number of classes
     scorenum = randsample(gg,classnum,true);
-    %scorenum = randsample(possible_scores,classnum,true);
-
-    %scorenum=randi([0,13],classnum,1); %random grades in each class
     idx=randperm(col-1)+1; %random permutation of classes
     classes=idx(1,1:classnum); %pick first classnum classes
     for j=1:classnum
@@ -32,6 +29,4 @@ for i=1:row
         data(i,curclass)=scorenum(j);
     end
 end
-
-%add in student numbers in first column
 
