@@ -1,4 +1,4 @@
-function grades = getgrades(classnum, inflation_level, type)
+function dist = getgrades(classnum, inflation_level, type)
 if type == 0 % A+,...   
     if inflation_level == 0
         dist = pearsrnd(11,1,-1.5,5,1,20*classnum);
@@ -16,6 +16,5 @@ else %type 3 is 0-100
         dist = round(pearsrnd(91,5,-1.5,5,1,20*classnum));
     end
 end
-grades = dist;
 
         
