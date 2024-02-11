@@ -1,5 +1,5 @@
 function final_matrix=Sensitivity_Testing(num)
-if nargin<1
+if nargin<1 %if there is no input set num to 101.
     num=101;
 end
 
