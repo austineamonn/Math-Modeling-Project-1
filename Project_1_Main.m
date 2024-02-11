@@ -3,15 +3,14 @@ rng('shuffle')
 if nargin<1
     X=randomdata();
 end
-%X = [1 4 NaN; 2 0 13; 3 5 NaN; 4 8 7; 5 3 NaN; 6 10 8; 7 13 10; 8 11 2; 9 NaN 6; 10 NaN 5; 11 4 4; 12 NaN 6; 13 4 9; 14 7 3; 15 NaN 8 ];
 [Xrow,Xcol]=size(X);
 Student_List = [X(1:end,1)];
 new_X=[Student_List];
 for i=2:Xcol
     Class = [X(1:end,i)];
-    ave=class_ave(Class);
-    stud_ave=student_ave(Class,ave);
-    new_X=[new_X, stud_ave];
+    ave=class_ave(Class); %calculate average grade in a class
+    stud_ave=student_ave(Class,ave); %calculate difference between a student's score and the class average
+    new_X=[new_X, stud_ave]; %add vector of stud_ave to matrix new_X
 end
 ranking=zeros(Xrow,1);
 new_X=[new_X, ranking];
@@ -38,31 +37,3 @@ low=sorted_list(1:tenthpercent);
 moretenthpercent=ceil(Xrow/10);
 
 high=sorted_list(1:moretenthpercent);
-
-%X_dec = discretize(final_ranking,quantile(final_ranking,[0:10]/10));
-
-% top_stud=[];
-% for i=1:15
-   % k=X_dec(i,1);
-   % if k == 10
-    %    top_stud=[top_stud,k];
-   % end
-% end
-
-% [~,col]=size(top_stud);
-% if col > Xrow/10
- %   lowest=top_stud(1,1);
-  %  for i=1:col
-  %      k=top_stud(1,i);
-  %      if k<lowest
-  %          lowest=k;
-   %     end
-   % end
-   % toptop_stud=[];
-   % for i=1:col
-   %     k=top_stud(1,i);
-   %     if k==lowest
-         %   toptop_stud=[toptop_stud,k];
-    %    end
-    %end
-  %  end 
