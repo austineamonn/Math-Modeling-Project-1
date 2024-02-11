@@ -3,11 +3,11 @@ if nargin<1 %if there is no input set num to 101.
     num=101;
 end
 
-final_matrix=zeros(num,4);
+final_matrix=zeros(num,4); %initialize final_matrix
 
 for i=1:num
     for j=1:4 %4 types of grading systems loop through with 1 for each
-        [~,ave0,~]=sensitivity_test(10,j-1);
-        final_matrix(i,j)=ave0;
+        [~,ave0]=sensitivity_test(10,j-1);
+        final_matrix(i,j)=ave0; %put average of sensitivity_test in final_matrix
     end
 end
