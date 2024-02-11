@@ -9,7 +9,7 @@ end
 new_data=data;
 newer_data=data;
 
-[low1,~,~]=Project_1_Main(data); %no change in data
+[~,high1,~]=Project_1_Main(data); %no change in data
 
 nochange=0;
 if type==0 % A+,...
@@ -74,9 +74,9 @@ elseif type==3 %type 3 is 0-100
     end
 end
 
-[low2,~,~]=Project_1_Main(new_data); %change to go down 1
+[~,high2,~]=Project_1_Main(new_data); %change to go down 1
 
-[low3,~,~]=Project_1_Main(newer_data); %change to go up 1
+[~,high3,~]=Project_1_Main(newer_data); %change to go up 1
 
-diff12=setdiff(low1,low2); %no highs
-diff13=setdiff(low1,low3);
+diff12=setdiff(high1,high2);
+diff13=setdiff(high1,high3);
