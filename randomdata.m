@@ -2,7 +2,7 @@ function data=randomdata(row,col,type)
 rng('shuffle');
 if nargin<1
     row=1700;
-    col=399;
+    col=400;
     type=0;
 end
 students=[1:row]';
