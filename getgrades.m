@@ -1,4 +1,4 @@
-function dist = getgrades(num, type)
+function dist = getgrades(num,type)
 if type == 0 % A+,...   
     dist = round(pearsrnd(11,1,-1.5,5,1,num));
     syms x
