@@ -1,4 +1,4 @@
-function [stand_dev,themean,Anova,time]=testofSensitivity_Testing(matrix)
+function [stand_dev,themean,Anova]=testofSensitivity_Testing(matrix)
 
 if nargin<1 %if there is matrix input call Sensitivity_Testing to make one
     matrix=Sensitivity_Testing(101);
